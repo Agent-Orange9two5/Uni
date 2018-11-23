@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct complex
+{
+     int a;
+     int b;
+};
+struct complex suma(struct complex z1, struct complex z2 )
+{
+    struct complex z3;
+    z3.a=z1.a+z2.a;
+    z3.b=z1.b+z2.b;
+    return z3;
+}
+struct complex produs(struct complex z1, struct complex z2 )
+{
+    struct complex z3;
+    z3.a=(z1.a*z2.a)-(z1.b+z2.b);
+    z3.b=(z1.a*z2.b)+(z1.b*z2.a);
+    return z3;
+}
+
+void afisare(struct complex z1, struct complex z2,struct complex (*f)(struct complex, struct complex))
+{
+    struct complex  z3;
+    int k,i,j,q,r;
+    scanf("%d",&k);
+      for(i=1;i<=k;i++)
+      for(j=1;j<=k;j++)
+      { z1.a=i;
+        z1.b=j;
+      for(q=1;q<=k;q++)
+      for(r=1;r<=k;r++)
+      {
+        z2.a=q;
+        z2.b=r;
+    z3=f(z1,z2);
+    printf("%d+i*%d    ",z3.a,z3.b);
+      }
+      printf("\n");
+      }
+}
+int main()
+{
+   struct complex x,y;
+
+   int optiune;
+   scanf("%d",&optiune);
+
+    if(optiune==1)
+    afisare(x,y,suma);
+    else
+    afisare(x,y,produs);
+
+
+    return 0;
+}
