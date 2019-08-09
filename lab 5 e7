@@ -16,7 +16,7 @@ int main()
     for(i=0;i<n;i++) { printf("%d ",*(*a+((k-1)*n)+i));
     if((i+1)%n==0) printf("\n");  }
 
-    //afisarea liniei k
+    //afisarea coloanei k
     printf("\n");
     printf("Coloana k: ");
     for(i=0;i<n;i++) { printf("%d ",*(*a+k+i*n));
